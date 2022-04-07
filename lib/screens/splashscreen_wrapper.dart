@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_project/models/user.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'auth_screen.dart';
 import 'home_screen.dart';
@@ -10,12 +11,19 @@ class SplashScreenWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<AppUser>(context);
 
-    if (user == null) {
-      return AuthScreen();
-    }else{
-      return HomeScreen();
+    Widget logged() {
+      final SharedPreferences prefs = SharedPreferences.getInstance() as SharedPreferences;
+      if (prefs.getBool('isLogged') == null){
+        return AuthScreen();
+      } else {
+        if (prefs.getBool('isLogged') == true){
+          return HomeScreen();
+        } else {
+          return AuthScreen();
+        }
+      }
     }
+    return logged();
   }
 }

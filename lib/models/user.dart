@@ -1,5 +1,5 @@
 class AppUser {
-    final String id;
+    final String mail;
 
-    AppUser({required this.id});
+    AppUser({required this.mail});
 }

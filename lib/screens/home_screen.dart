@@ -5,6 +5,21 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
+        elevation: 0,
+        title: const Text("Appli de fou !"),
+        actions: <Widget>[
+          TextButton.icon(
+              icon: const Icon(Icons.person),
+              label: const Text('Déconnexion', style: TextStyle(color:Colors.white)),
+              onPressed: () async {
+              },
+          )
+        ],
+      )
+    );
   }
 }
