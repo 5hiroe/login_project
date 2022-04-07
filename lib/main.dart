@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_project/screens.auth/auth_screen.dart';
+import 'package:login_project/screens/auth_screen.dart';
 
 void main()=> runApp(MainApp());
 
@@ -9,11 +9,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const AuthScreen(),
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      )
+        home: const AuthScreen(),
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        )
     );
   }
 }
-
